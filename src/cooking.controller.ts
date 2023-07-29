@@ -41,7 +41,7 @@ export class CookingController {
     });
   }
 
-  @Get('getDetail:uuid')
+  @Get('getDetail/:uuid')
   async getDetail(@Param('uuid') uuid) {
     return await this.repository.find({
       select: [
