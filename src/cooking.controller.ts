@@ -20,10 +20,9 @@ export class CookingController {
     private readonly repository: Repository<CookingEntity>,
   ) {}
   @Post('create')
-  async create(@UploadedFile() file, @Body() body: CreateCookingDto) {
+  async create(@Body() body: CreateCookingDto) {
     return await this.repository.save({
       ...body,
-      icon_picture: file.filename,
     });
   }
 
@@ -37,6 +36,7 @@ export class CookingController {
         'fish_needs_num',
         'farm_needs_num',
         'spices_needs_num',
+        'icon_picture',
       ],
     });
   }
@@ -51,6 +51,7 @@ export class CookingController {
         'fish_needs_num',
         'farm_needs_num',
         'spices_needs_num',
+        'icon_picture',
       ],
       where: [
         {

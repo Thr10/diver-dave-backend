@@ -4,4 +4,5 @@ export class CreateCookingDto {
   fish_needs_num: number;
   farm_needs_num: number;
   spices_needs_num: number;
+  icon_picture: string;
 }
