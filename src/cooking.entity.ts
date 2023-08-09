@@ -1,4 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { CookingComplexInfo, CookingMenuItem } from './type/cooking';
 
 @Entity('cooking')
 export class CookingEntity {
@@ -12,14 +13,32 @@ export class CookingEntity {
   name_zh: string;
 
   @Column()
-  fish_needs_num: number;
+  price: number;
 
   @Column()
-  farm_needs_num: number;
+  price_max: number;
 
   @Column()
-  spices_needs_num: number;
+  mark: number;
 
   @Column()
-  icon_picture: string;
+  mark_max: number;
+
+  @Column()
+  yield: number;
+
+  @Column({ length: 1024 })
+  describe: string;
+
+  @Column()
+  icon_name: string;
+
+  @Column()
+  scene_picture: string;
+
+  @Column()
+  unlock_fire: string;
+
+  @Column({ type: 'json', nullable: true })
+  complex_info: CookingComplexInfo;
 }
