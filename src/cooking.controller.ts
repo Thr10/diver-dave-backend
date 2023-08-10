@@ -45,7 +45,7 @@ export class CookingController {
 
   @Get('getDetail/:uuid')
   async getDetail(@Param('uuid') uuid) {
-    return await this.repository.find({
+    const res = await this.repository.find({
       select: [
         'uuid',
         'name_en',
@@ -54,6 +54,7 @@ export class CookingController {
         'describe',
         'complex_info',
         'mark',
+        'yield',
         'mark_max',
         'price',
         'price_max',
@@ -66,5 +67,6 @@ export class CookingController {
         },
       ],
     });
+    return res.length > 0 ? res[0] : 'check your uuid; can not find data!';
   }
 }
